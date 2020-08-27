@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{locateRecipie.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col class="ion-no-padding">
+      <ion-img [src]="locateRecipie.image"></ion-img>
+    </ion-col>
+  </ion-row>
+    <ion-row>
+    <ion-col class="ion-text-center">
+      <h1>{{locateRecipie.title}}</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list [ngIf]="locateRecipie.ingredients && locateRecipie.ingredients.length">
+        <ion-item *ngFor="let item of locateRecipie.ingredients; let i = index">
+          {{item}}
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
