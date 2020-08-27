@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recepie } from '../recepies.model';
 import { RecepieDetailsService } from '../recepie-details.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-recepie-details',
@@ -10,7 +11,7 @@ import { RecepieDetailsService } from '../recepie-details.service';
 })
 export class RecepieDetailsPage implements OnInit {
   locateRecipie: Recepie;
-  constructor(private activatedRoute: ActivatedRoute, private recepieDetailsService: RecepieDetailsService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private recepieDetailsService: RecepieDetailsService) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
@@ -19,8 +20,10 @@ export class RecepieDetailsPage implements OnInit {
       }
       const rId = paramMap.get('id');
       this.locateRecipie = this.recepieDetailsService.getRecepieDetails(rId);
-      console.log(this.locateRecipie)
     })
   }
-
+  onDelete(){
+    this.recepieDetailsService.deleteRecepie(this.locateRecipie.id);
+    this.router.navigate(['/recepies'])
+  }
 }

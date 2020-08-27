@@ -37,4 +37,9 @@ export class RecepieDetailsService {
       })
     }
   }
+  deleteRecepie(recepieId:string){
+    this.allItems = this.allItems.filter(rec =>{
+      return rec.id !== recepieId;
+    })
+  }
 }
