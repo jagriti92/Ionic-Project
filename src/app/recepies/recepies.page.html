@@ -6,11 +6,8 @@
 
 <ion-content>
 <ion-list>
-  <ion-item *ngFor="let item of items" [routerLink]="['/recepies', item.id]" >
-    <ion-avatar slot="start">
-      <ion-img [src]="item.image"></ion-img>
-    </ion-avatar>
-    <ion-label>{{item.title}}</ion-label>
-  </ion-item>
+  <app-recepie-item *ngFor="let item of items" [recepieItem]="item"></app-recepie-item>
 </ion-list>
+
+<ion-button class="ion-padding" (click)= "onAlertClick()">Show Alert</ion-button>
 </ion-content>

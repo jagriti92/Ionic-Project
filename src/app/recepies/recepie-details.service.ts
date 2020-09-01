@@ -4,7 +4,7 @@ import { Recepie } from './recepies.model';
 @Injectable({
   providedIn: 'root'
 })
-export class RecepieDetailsService {
+export class RecepieDetailsService{
   private allItems: Recepie[] = [
     {
       id:'1',
@@ -37,9 +37,8 @@ export class RecepieDetailsService {
       })
     }
   }
-  deleteRecepie(recepieId:string){
-    this.allItems = this.allItems.filter(rec =>{
-      return rec.id !== recepieId;
-    })
+  deleteRecepie(recepieId: string){
+    this.allItems = this.allItems.filter(rec => {
+      return rec.id !== recepieId});
   }
 }

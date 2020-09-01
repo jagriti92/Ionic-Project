@@ -8,6 +8,7 @@ import { RecepiesPageRoutingModule } from './recepies-routing.module';
 
 import { RecepiesPage } from './recepies.page';
 import { RecepieDetailsPage } from './recepie-details/recepie-details.page';
+import { RecepieItemComponent } from './recepie-item/recepie-item.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { RecepieDetailsPage } from './recepie-details/recepie-details.page';
     IonicModule,
     RecepiesPageRoutingModule
   ],
-  declarations: [RecepiesPage]
+  declarations: [RecepiesPage, RecepieItemComponent],
+  exports: [RecepieItemComponent]
 })
 export class RecepiesPageModule {}
